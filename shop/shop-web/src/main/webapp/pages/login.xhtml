@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/template.xhtml">
+
+	<ui:define name="pageTitle">login</ui:define>
+	<ui:define name="pageContent">
+		...LOGIN...
+	
+	
+	<h2>Log in</h2>
+	<hr/>
+	<h:form id="loginForm">
+		<h:panelGrid columns="2">
+			<h:outputText value="Login" />
+			<h:inputText value="#{access.login}" />
+			<h:outputText value="Password" />
+			<h:inputSecret value="#{access.password}" />
+			<h:commandButton id="submitButton" action="#{access.doLogin()}" value="log in" />
+			<h:message for="submitButton"/>
+		</h:panelGrid>
+	</h:form>
+	</ui:define>
+
+</ui:composition>

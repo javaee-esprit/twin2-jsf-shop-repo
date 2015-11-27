@@ -5,7 +5,19 @@
 	xmlns:jsf="http://xmlns.jcp.org/jsf"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui">
-	<h:form>
-		<h:commandLink action="/pages/admin/products/manage?faces-redirect=true" value="PRODUCTS" /> 
+	
+	<h:form rendered="#{identity.hasRole('Admin')}">
+		<h:panelGrid columns="1">
+			<h:commandLink action="/pages/admin/home?faces-redirect=true" value="HOME" /> 
+			<h:commandLink action="/pages/admin/products/manage?faces-redirect=true" value="PRODUCTS" />
+			<h:commandLink action="/pages/admin/categories/manage?faces-redirect=true" value="CATEGORIES" />
+		</h:panelGrid>  
+	</h:form>
+	
+	<h:form rendered="#{identity.hasRole('Customer')}">
+		<h:panelGrid columns="1">
+			<h:commandLink action="/pages/customer/home?faces-redirect=true" value="HOME" />
+			<h:commandLink action="/pages/customer/shop?faces-redirect=true" value="SHOP" />  
+		</h:panelGrid>
 	</h:form>
 </ui:composition>

@@ -29,10 +29,10 @@
 		</h:column>
 		<h:column>
 			<f:facet name="header">ACTION</f:facet>
-			<h:commandButton action="#{productMB.doSelect()}" value="SELECT" />
+			<h:commandButton actionListener="#{productMB.doSelect(p)}" value="SELECT" />
 		</h:column>
 	</h:dataTable>
-	<h:commandButton action="#{productMB.doNew()}" value="new" />
+	<h:commandButton actionListener="#{productMB.doNew()}" value="new" />
 	</h:form>
 
 </ui:composition>

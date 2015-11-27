@@ -20,16 +20,44 @@ public class ProductsCrudBean {
 	
 	
 	private List<Product> products;
-	private Product product; 
+	private Product product;
+	private Boolean formDisplayed;
 	
 	public ProductsCrudBean() {
 	}
 	
 	@PostConstruct
 	public void init(){
+		product = new Product();
 		products = catalogServiceLocal.findAllProducts();
+		formDisplayed = false;
 	}
 	
+	public void doNew(){
+		product = new Product();
+		formDisplayed = true;
+	}
+	
+	public void doCancel(){
+		formDisplayed = false;
+	}
+	
+	public void doSave(){
+		catalogServiceLocal.saveProduct(product);
+		products = catalogServiceLocal.findAllProducts();
+		formDisplayed = false;
+	}
+	
+	public void doDelete(){
+		catalogServiceLocal.removeProduct(product);
+		products = catalogServiceLocal.findAllProducts();
+		formDisplayed = false;
+	}
+	
+	public void doSelect(Product product){
+		this.product = product;
+		formDisplayed = true;
+	}	
 	
 
 	public List<Product> getProducts() {
@@ -46,6 +74,14 @@ public class ProductsCrudBean {
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+	public Boolean getFormDisplayed() {
+		return formDisplayed;
+	}
+
+	public void setFormDisplayed(Boolean formDisplayed) {
+		this.formDisplayed = formDisplayed;
 	}
 	
 	

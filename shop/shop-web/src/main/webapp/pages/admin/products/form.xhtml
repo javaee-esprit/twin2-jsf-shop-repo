@@ -6,7 +6,7 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:p="http://primefaces.org/ui">
 
-	<h:form>
+	<h:form rendered="#{productMB.formDisplayed}">
 		<h:panelGrid columns="2">
 			<h:outputText value="NAME" />
 			<h:inputText value="#{productMB.product.name}" />
@@ -15,9 +15,9 @@
 			<h:outputText value="STOCK" />
 			<h:inputText value="#{productMB.product.stock}" />
 			<h:panelGrid columns="3">
-				<h:commandButton action="#{productMB.doCancel()}" value="cancel" />
-				<h:commandButton action="#{productMB.doSave()}" value="save" />
-				<h:commandButton action="#{productMB.doDelete()}" value="delete" />
+				<h:commandButton actionListener="#{productMB.doCancel()}" value="cancel" />
+				<h:commandButton actionListener="#{productMB.doSave()}" value="save" />
+				<h:commandButton actionListener="#{productMB.doDelete()}" value="delete" />
 			</h:panelGrid>
 		</h:panelGrid>
 	</h:form>

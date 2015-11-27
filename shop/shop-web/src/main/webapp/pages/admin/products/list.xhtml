@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:form>
+	<h:dataTable value="#{productMB.products}" var="p" >
+		<h:column>
+			<f:facet name="header">NAME</f:facet>
+			<h:outputText value="#{p.name}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">PRICE</f:facet>
+			<h:outputText value="#{p.unitCost}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">STOCK</f:facet>
+			<h:outputText value="#{p.stock}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">CATEGORY</f:facet>
+			<h:outputText value="#{p.category.name}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">ACTION</f:facet>
+			<h:commandButton action="#{productMB.doSelect()}" value="SELECT" />
+		</h:column>
+	</h:dataTable>
+	<h:commandButton action="#{productMB.doNew()}" value="new" />
+	</h:form>
+
+</ui:composition>

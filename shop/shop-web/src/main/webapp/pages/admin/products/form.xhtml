@@ -1,0 +1,25 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputText value="NAME" />
+			<h:inputText value="#{productMB.product.name}" />
+			<h:outputText value="PRICE" />
+			<h:inputText value="#{productMB.product.unitCost}" />
+			<h:outputText value="STOCK" />
+			<h:inputText value="#{productMB.product.stock}" />
+			<h:panelGrid columns="3">
+				<h:commandButton action="#{productMB.doCancel()}" value="cancel" />
+				<h:commandButton action="#{productMB.doSave()}" value="save" />
+				<h:commandButton action="#{productMB.doDelete()}" value="delete" />
+			</h:panelGrid>
+		</h:panelGrid>
+	</h:form>
+
+</ui:composition>

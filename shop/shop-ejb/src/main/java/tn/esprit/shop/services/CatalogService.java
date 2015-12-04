@@ -18,6 +18,7 @@ public class CatalogService implements CatalogServiceRemote,
 
 	@PersistenceContext
 	private EntityManager em;
+	
 
 	public CatalogService() {
 	}

@@ -7,6 +7,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import tn.esprit.shop.persistence.Category;
 import tn.esprit.shop.persistence.Product;
 import tn.esprit.shop.services.CatalogServiceLocal;
 
@@ -22,6 +23,7 @@ public class ProductsCrudBean {
 	private List<Product> products;
 	private Product product;
 	private Boolean formDisplayed;
+	private List<Category> categories;
 	
 	public ProductsCrudBean() {
 	}
@@ -31,6 +33,7 @@ public class ProductsCrudBean {
 		product = new Product();
 		products = catalogServiceLocal.findAllProducts();
 		formDisplayed = false;
+		categories = catalogServiceLocal.findAllCategories();
 	}
 	
 	public void doNew(){
@@ -82,6 +85,14 @@ public class ProductsCrudBean {
 
 	public void setFormDisplayed(Boolean formDisplayed) {
 		this.formDisplayed = formDisplayed;
+	}
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
 	}
 	
 	

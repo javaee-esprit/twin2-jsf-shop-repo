@@ -14,6 +14,11 @@
 			<h:inputText value="#{productMB.product.unitCost}" />
 			<h:outputText value="STOCK" />
 			<h:inputText value="#{productMB.product.stock}" />
+			<h:outputText value="CATEGORY" />
+			<h:selectOneMenu value="#{productMB.product.category}" converter="#{categoryConverter}">
+				<f:selectItem itemValue="" itemLabel="choose one ..."/>
+				<f:selectItems value="#{productMB.categories}"  var="c" itemValue="#{c}" itemLabel="#{c.name}"/>
+			</h:selectOneMenu>
 			<h:panelGrid columns="3">
 				<h:commandButton actionListener="#{productMB.doCancel()}" value="cancel" />
 				<h:commandButton actionListener="#{productMB.doSave()}" value="save" />
